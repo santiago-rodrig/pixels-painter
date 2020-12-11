@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<script>
-import Pixel from "./Pixel"
+<script lang="ts">
+import Pixel from "./Pixel.vue"
 
 export default {
   name: "Canvas",

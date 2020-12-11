@@ -1,19 +1,22 @@
 <template>
   <div id="app">
+    <ColorPicker />
     <Canvas />
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
-import Canvas from "./components/Canvas.vue";
+import Vue from "vue"
+import Canvas from "./components/Canvas.vue"
+import ColorPicker from "./components/ColorPicker.vue"
 
 export default Vue.extend({
   name: "App",
   components: {
-    Canvas
+    Canvas,
+    ColorPicker
   }
-});
+})
 </script>
 
 <style>
