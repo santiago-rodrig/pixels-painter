@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <Pixel />
+    <Canvas />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Pixel from "./components/Pixel.vue";
+import Canvas from "./components/Canvas.vue";
 
 export default Vue.extend({
   name: "App",
   components: {
-    Pixel
+    Canvas
   }
 });
 </script>
