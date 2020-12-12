@@ -1,7 +1,7 @@
 <template>
   <div>
     <Pixel
-      interactive
+      isInColorPicker
       v-for="n in 4"
       :key="n"
       :color="colors[n - 1]"
