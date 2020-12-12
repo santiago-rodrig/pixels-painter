@@ -29,11 +29,33 @@ export default Vue.extend({
   mounted() {
     this.$root.$on("updatecolor", (color: string) => {
       this.color = color
+      localStorage.setItem("currentColor", color)
     })
 
     this.$root.$on("clickedpixel", (index: number) => {
       this.pixels.splice(index, 1, this.color)
+      localStorage.setItem("pixels", JSON.stringify(this.pixels))
     })
+
+    this.checkStorage()
+  },
+  methods: {
+    checkStorage() {
+      const storedPixels = localStorage.getItem("pixels")
+      const storedCurrentColor = localStorage.getItem("currentColor")
+
+      if (!storedPixels) {
+        localStorage.setItem("pixels", JSON.stringify(this.pixels))
+      } else {
+        this.pixels = JSON.parse(storedPixels)
+      }
+
+      if (!storedCurrentColor) {
+        localStorage.setItem("currentColor", defaultColor)
+      } else {
+        this.color = storedCurrentColor
+      }
+    }
   }
 })
 </script>
