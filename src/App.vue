@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <ColorPicker />
+    <ColorPicker :color="color" />
     <Canvas />
   </div>
 </template>
@@ -15,6 +15,16 @@ export default Vue.extend({
   components: {
     Canvas,
     ColorPicker
+  },
+  data() {
+    return {
+      color: "white"
+    }
+  },
+  mounted() {
+    this.$root.$on("updatecolor", (color: string) => {
+      this.color = color
+    })
   }
 })
 </script>
@@ -27,5 +37,10 @@ export default Vue.extend({
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 </style>

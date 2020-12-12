@@ -1,6 +1,12 @@
 <template>
   <div>
-    <Pixel v-for="n in 4" :key="n" :color="colors[n - 1]" />
+    <Pixel
+      interactive
+      v-for="n in 4"
+      :key="n"
+      :color="colors[n - 1]"
+      :current="color == colors[n - 1] ? true : false"
+    />
   </div>
 </template>
 
@@ -16,6 +22,9 @@ export default {
     return {
       colors: ["white", "lightblue", "blue", "darkblue"]
     }
+  },
+  props: {
+    color: String
   }
 }
 </script>
